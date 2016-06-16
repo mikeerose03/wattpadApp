@@ -1,35 +1,32 @@
 (function(){
 	angular
 	.module("app")
-	.factory("booksService", bookFactory);
+	.service("booksService", ['$q', '$http', 'constants', booksService]);
 
-	bookFactory.$inject = ['$q', '$http', 'constants'];
+	function booksService($q, $http, constants){
+		
+		console.log('Service is up')
+		var defer = $q.defer();
+		
+		var getData = function(){
 
-	function bookFactory($q, $http, constants){
-			console.log('getfact')
-			var dataObj = {
-				booksData: getBooks
-			};
+			 $http.get(constants.API_URL, {
+				headers: {
+					'Authorization': constants.API_KEY
+				}
+			}).then(function(response){
+				defer.resolve(response.data);
+				 console.log('data received in booksService: ', response.status)
+			}, function(response){
+				defer.reject(response.status)
+			});
 
-			var getBooks = function() {
-				var result = {};
-				console.log("getbooks")
-				 $http({
-					method: 'GET',
-					url: constants.API_URL,
-					headers: {
-						'Authorization': constants.API_KEY,
-						'Host': constants.API_HOST
-					}
-				})
-				.success(function(res){
-					result = res.data;
-				});
-				return result;
-				console.log("result returned");
-			}
-
-			return dataObj;
+			return defer.promise
+		};
+			
+		return{
+			getData: getData
+		};
 	}
 
 
