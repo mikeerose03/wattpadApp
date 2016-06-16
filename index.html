@@ -8,21 +8,23 @@
 <body ng-app="app">
 
 	<div class="container" ng-controller="booksController as booksCtrl">
-		<div>
+		<div class="header">
 			<img class='logo' src="images/logo.png">
 		</div>
-		<div class="dataTable">
-			
-		</div>
+	
+			<div ng-repeat="book in booksCtrl.data track by $index">
+				
+			</div>
+	
 	</div>
 
 <!-- JS stuff -->
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.min.js"> </script>
-
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="booksService.js"></script>
     <script type="text/javascript" src="booksController.js"></script>
+    <script type="text/javascript" src="listController.js"></script>
 </body>
 </html>
