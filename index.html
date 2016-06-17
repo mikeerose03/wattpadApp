@@ -11,11 +11,11 @@
 		<div class="header">
 			<img class='logo' src="images/logo.png">
 		</div>
-	
-			<div ng-repeat="book in booksCtrl.data track by $index">
-				
+		
+			<div ng-repeat="story in booksCtrl.data.stories track by $index">
+				 <img ng-src={{story.cover}}/>
 			</div>
-	
+		
 	</div>
 
 <!-- JS stuff -->

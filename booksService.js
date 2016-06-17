@@ -12,13 +12,13 @@
 
 			 $http.get(constants.API_URL, {
 				headers: {
-					'Authorization': constants.API_KEY
+					'Authorization': constants.API_KEY,
+					'Accept': 'application/json' 
 				}
 			}).then(function(response){
 				defer.resolve(response.data);
-				 console.log('data received in booksService: ', response.status)
 			}, function(response){
-				defer.reject(response.status)
+				defer.reject(response)
 			});
 
 			return defer.promise
