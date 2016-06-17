@@ -13,6 +13,49 @@ html, body{
 	justify-content: center;
 }
 
+.story{
+/*	transform: perspective(400px) rotateY(8deg);
+	-webkit-transform: perspective(400px) rotateY(8deg);
+/*	padding: 2px;
+	padding-top: 5%; */
+}
+
+.story:hover{
+	/*flex-grow: 1;*/
+	animation-name: thumbTilt;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+	transition-timing-function: ease-in;
+
+	-webkit-animation-name: thumbTilt;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	-webkit-transition-timing-function: ease-in;
+}
+
+@keyframes thumbTilt {
+	0% {
+		transform: perspective(400px) rotateY(8deg) scale(1);
+	}
+	20% {
+		transform: perspective(400px) rotateY(-13deg) scale(1.1);
+	}
+	100% {
+		transform: perspective(400px) rotateY(0deg) scale(1.2);
+	}
+}
+
+@-webkit-keyframes thumbTilt {
+	0% {
+		-webkit-transform: perspective(400px) rotateY(8deg) scale(1);
+	}
+	20% {
+		-webkit-transform: perspective(400px) rotateY(-13deg) scale(1.1);
+	}
+	100% {
+		-webkit-transform: perspective(400px) rotateY(0deg) scale(1.2);
+	}
+}
 .logo {
 	display: flex;
 	width: 10%;

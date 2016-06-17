@@ -12,10 +12,10 @@
 			<img class='logo' src="images/logo.png">
 		</div>
 		
-			<div ng-repeat="story in booksCtrl.data.stories track by $index">
-				 <img ng-src={{story.cover}}/>
-			</div>
-		
+		<div ng-repeat="story in booksCtrl.data.stories track by $index" class="story">
+			 <img ng-src={{story.cover}}/>
+		</div>
+		<div></div>
 	</div>
 
 <!-- JS stuff -->
