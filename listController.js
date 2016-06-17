@@ -3,10 +3,8 @@
 		.module('app')
 		.controller('listController', listController);
 
-		function listController(){
+		function listController(ngDialog){
 			var vm = this;
-			vm.current=0;
-			vm.prev=0;
-			vm.next= vm.current + 1; 
+			
 		}
 }());

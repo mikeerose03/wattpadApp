@@ -4,27 +4,37 @@
 	<title>Wattpad WebApp</title>
 	<!-- CSS stuff --> 
 	<link rel="stylesheet" href="custom.css">
+	<link rel="stylesheet" href="css/ngDialog.css">
+	<link rel="stylesheet" href="css/ngDialog-theme-default.css">
 </head>
-<body ng-app="app">
-
-	<div class="container" ng-controller="booksController as booksCtrl">
-		<div class="header">
-			<img class='logo' src="images/logo.png">
-		</div>
-		
-		<div ng-repeat="story in booksCtrl.data.stories track by $index" class="story">
-			 <img ng-src={{story.cover}}/>
-		</div>
-		<div></div>
+<body ng-app="app" ng-controller="booksController as booksCtrl">
+		<!-- HEADER -->
+	<div class="header">
+		<center><div class="logo">
+			<img src="images/logo.png"/> 'S  
+			<h1>HOTTEST STORIES</h1>
+		</div></center>
 	</div>
-
+		<!-- CONTENT -->
+	<div class="container content">	
+		<div ng-repeat="story in booksCtrl.data.stories track by $index" class="story" ng-click="booksCtrl.changeCurrentStory(story)">
+			 <img ng-src={{story.cover}}/> 
+			 <div class="info">
+			 	<h3>"{{story.title}}" </h3>
+			 	 <h4><small>by </small> {{story.user}}</h4>
+			 </div>
+		</div>
+	</div>
+		<!--FOOTER -->
+	<div class="footer"></div>
 <!-- JS stuff -->
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.min.js"> </script>
+    <script type="text/javascript" src="js/ngDialog.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="booksService.js"></script>
     <script type="text/javascript" src="booksController.js"></script>
-    <script type="text/javascript" src="listController.js"></script>
+    <script type="text/javascript"></script>
 </body>
 </html>

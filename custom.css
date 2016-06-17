@@ -18,6 +18,18 @@ html, body{
 	-webkit-transform: perspective(400px) rotateY(8deg);
 /*	padding: 2px;
 	padding-top: 5%; */
+	cursor: pointer;
+}
+
+.info{
+	position:absolute;
+	background:#000;
+	bottom: 0;
+	left:0;
+	right:0;
+	padding:15px;
+	text-align:center;
+	visibility:hidden;
 }
 
 .story:hover{
@@ -56,13 +68,64 @@ html, body{
 		-webkit-transform: perspective(400px) rotateY(0deg) scale(1.2);
 	}
 }
-.logo {
-	display: flex;
-	width: 10%;
-	margin: 2% auto;
+
+
+.story:hover .info {
+	animation-name: infoSlide;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+	transition-timing-function: ease-in;
+
+	-webkit-animation-name: infoSlide;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	-webkit-transition-timing-function: ease-in;
 }
+
+
+@keyframes infoSlide {
+	0% {
+		opacity:0;
+		transform: translateX(2.4em);
+	}
+	100% {
+		opacity:100;
+		transform: translateX(0);
+		visibility:visible;
+	}
+}
+
+@-webkit-keyframes infoSlide {
+	0% {
+		opacity:0;
+		-webkit-transform: translateX(2.4em);
+	}
+	100% {
+		opacity:100;
+		-webkit-transform: translateX(0);
+		visibility:visible;
+	}
+}
+
+
+
+
+.logo {
+	margin: 5% auto;
+}
+.logo img{
+	width: 10%;
+	height:5%;
+}
+
 .header{
-	flex: 1 100%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+.content{
+	
 }
 
 .row{
